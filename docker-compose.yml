@@ -1,31 +1,33 @@
-# docker compose file for nodejs app and mongodb-community
-
 version: "3.8"
 
 services:
-  todo:
+  mongo_db:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: todo
+      MONGO_INITDB_ROOT_PASSWORD: todo888
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_db:/data/db
+
+  api:
     build:
       context: .
       dockerfile: ./Dockerfile
     container_name: todo-app
     image: nodejs-todo-app
     depends_on:
-      - mongodb
+      - mongo_db
     ports:
-      - "3000:3000"
-    environment:
-      DATABASE_URL: mongodb://todo:todo888@localhost:27017/todolist?authSource=admin
-    networks:
-      - server-network
-  mongodb:
-    image: mongodb/mongodb-community-server
-    container_name: mongo
+      - 3000:3000
     restart: unless-stopped
     environment:
-      MONGODB_INITDB_ROOT_USERNAME: todo
-      MONGODB_INITDB_ROOT_PASSWORD: todo888
-      MONGODB_DATABASE: todolist
-    ports:
-      - 27017:27017
-networks:
-  server-network:
+      DATABASE_URL: mongodb://mongo_db:27017/todolist?authSource=admin
+    volumes:
+      - .:/usr/src/app
+
+volumes:
+  mongo_db: {}
