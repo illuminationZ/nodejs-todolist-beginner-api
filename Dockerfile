@@ -5,10 +5,8 @@ FROM node:18.17.0-alpine
 WORKDIR /usr/src/app
 
 # copy package.json
-COPY --chown=node:node package*.json ./
-
-# COPY ENV
-COPY .env /app
+# COPY --chown=node:node package*.json ./
+COPY package*.json ./
 
 # install dependencies
 RUN npm install

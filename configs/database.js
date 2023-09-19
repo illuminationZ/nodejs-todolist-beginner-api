@@ -5,8 +5,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = {
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database_name: process.env.DB_NAME,
+    username: process.env.MONGO_INITDB_ROOT_USERNAME,
+    password: process.env.MONGO_INITDB_ROOT_PASSWORD,
+    database_name: process.env.MONGO_INITDB_DATABASE,
     database_url: process.env.DATABASE_URL,
 };
