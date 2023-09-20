@@ -2,17 +2,25 @@
 GET http://localhost:3000/api/v1/todos
 
 # Get a single todo
-GET http://localhost:3000/api/v1/todos/6509a566d3082ecd2676421a
+GET http://localhost:3000/api/v1/todos/id
 
 # Create a todo
 POST http://localhost:3000/api/v1/todos/
+Content-Type: application/json
+
 {
   "title": "Learn Node.js",
   "content": "Learn Node.js and build REST APIs"
 }
 
 # Update a todo
-PATCH  http://localhost:3000/api/v1/todos/
+PATCH  http://localhost:3000/api/v1/todos/id
+Content-Type: application/json
+
+{
+  "title": "Learn Node.js",
+  "content": "updated Learn Node.js and build REST APIs"
+}
 
 # Delete a todo
-DELETE http://localhost:3000/api/v1/todos/
+DELETE http://localhost:3000/api/v1/todos/id
