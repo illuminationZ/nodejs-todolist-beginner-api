@@ -27,8 +27,6 @@ services:
     restart: unless-stopped
     environment:
       DATABASE_URL: mongodb://mongo_db:27017/${MONGO_INITDB_DATABASE}?authSource=admin
-    volumes:
-      - .:/usr/src/app
 
 volumes:
   mongo_db: {}
