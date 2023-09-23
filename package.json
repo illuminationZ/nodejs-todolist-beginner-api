@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-todolist-beginner-api",
+  "name": "nodejs-beginner-api",
   "version": "1.0.0",
   "description": "this is an example for learning nodejs api in local test",
   "main": "app.js",
@@ -14,7 +14,8 @@
     "url": "illuminationZ"
   },
   "keywords": [
-    "learning-nodejs-api"
+    "learning-nodejs",
+    "nodejs-api"
   ],
   "author": "Makii",
   "license": "MIT",
